@@ -1,0 +1,63 @@
+.card {
+  background-color: var(--color-surface);
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+/* States */
+.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.correct {
+  background-color: #dcfce7;
+  border-color: var(--color-success);
+  color: #166534;
+}
+
+.incorrect {
+  background-color: #fee2e2;
+  border-color: var(--color-error);
+  color: #991b1b;
+}
+
+.notDraggable {
+  cursor: default;
+}
+
+.notDraggable:hover {
+  transform: none;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .card {
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-lg);
+  }
+}

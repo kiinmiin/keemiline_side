@@ -1,0 +1,58 @@
+.container {
+  margin: var(--spacing-md) 0;
+}
+
+.label {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.dropZone {
+  min-height: 120px;
+  border: 3px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.placeholder {
+  color: var(--color-text-light);
+  font-style: italic;
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+/* States */
+.hovering {
+  border-color: var(--color-primary);
+  background-color: #dbeafe;
+  border-style: solid;
+}
+
+.filled {
+  background-color: var(--color-surface);
+  border-color: #94a3b8;
+}
+
+.correct {
+  background-color: #dcfce7;
+  border-color: var(--color-success);
+}
+
+.incorrect {
+  background-color: #fee2e2;
+  border-color: var(--color-error);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .dropZone {
+    min-height: 150px;
+  }
+}
