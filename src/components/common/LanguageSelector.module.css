@@ -1,0 +1,28 @@
+.selector {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.button {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  border-color: var(--color-primary);
+  background-color: #dbeafe;
+}
+
+.button.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}

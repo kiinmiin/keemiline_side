@@ -1,0 +1,279 @@
+.game {
+  padding-bottom: var(--spacing-xl);
+}
+
+.progressBar {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.targetMolecule {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.targetName {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.targetFormula {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.targetHint {
+  font-size: var(--font-size-base);
+  color: var(--color-text-light);
+  margin: 0;
+  font-style: italic;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md) 0;
+  text-align: center;
+}
+
+.subSectionTitle {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.buildArea {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.selectedAtoms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  min-height: 80px;
+  padding: var(--spacing-md);
+  background-color: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 2px dashed #cbd5e1;
+  margin-bottom: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyMessage {
+  color: var(--color-text-light);
+  font-style: italic;
+  margin: 0;
+}
+
+.selectedAtom {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.selectedAtom:hover {
+  background-color: var(--color-error);
+}
+
+.selectedAtom .atomSymbol {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.removeIcon {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.bondSelection {
+  padding-top: var(--spacing-md);
+  border-top: 1px solid #e2e8f0;
+}
+
+.bondTypes {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bondButton {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  background-color: white;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bondButton:hover {
+  border-color: var(--color-primary);
+  background-color: #f8fafc;
+}
+
+.bondButton.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.atomPalette {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.atomGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.atomButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md);
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  background-color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.atomButton:hover {
+  border-color: var(--color-primary);
+  background-color: #dbeafe;
+  transform: scale(1.05);
+}
+
+.atomButton .atomSymbol {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.atomButton .atomName {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  margin-top: var(--spacing-xs);
+}
+
+.atomButton .atomValence {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  margin-top: var(--spacing-xs);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+/* Completion Screen */
+.completion {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--spacing-xl);
+}
+
+.completionTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.score {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resultItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+}
+
+.resultItem.correct {
+  background-color: #dcfce7;
+  color: var(--color-success);
+}
+
+.resultItem.incorrect {
+  background-color: #fee2e2;
+  color: var(--color-error);
+}
+
+.resultMolecule {
+  font-weight: 500;
+}
+
+.resultStatus {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.message {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-xl) 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}

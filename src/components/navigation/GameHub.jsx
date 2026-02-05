@@ -1,50 +1,56 @@
 import { useNavigate } from 'react-router-dom';
 import { useProgress } from '../../context/ProgressContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { Button } from '../common/Button';
+import { LanguageSelector } from '../common/LanguageSelector';
 import styles from './GameHub.module.css';
 
 const games = [
   {
     id: 'bondTypesSorting',
-    title: 'Bond Types Sorting',
-    description: 'Learn to distinguish between chemical bonds and intermolecular forces',
+    titleKey: 'navigation.hub.bondTypesSorting',
+    descriptionKey: 'navigation.hub.bondTypesSortingDesc',
     route: '/game/bond-types',
   },
   {
     id: 'bondFormation',
-    title: 'Bond Formation',
-    description: 'Explore how atoms form chemical bonds',
+    titleKey: 'navigation.hub.bondFormation',
+    descriptionKey: 'navigation.hub.bondFormationDesc',
     route: '/game/bond-formation',
   },
   {
-    id: 'conceptQuestions',
-    title: 'Concept Questions',
-    description: 'Test your understanding of bonding concepts',
-    route: '/game/concepts',
+    id: 'electronegativityMatch',
+    titleKey: 'navigation.hub.electronegativityMatch',
+    descriptionKey: 'navigation.hub.electronegativityMatchDesc',
+    route: '/game/electronegativity',
   },
   {
-    id: 'atomicStructure',
-    title: 'Atomic Structure',
-    description: 'Learn about atoms and electron configurations',
-    route: '/game/atomic-structure',
+    id: 'bondPolarityQuiz',
+    titleKey: 'navigation.hub.bondPolarityQuiz',
+    descriptionKey: 'navigation.hub.bondPolarityQuizDesc',
+    route: '/game/bond-polarity',
   },
   {
-    id: 'fillInTheBlank',
-    title: 'Fill in the Blank',
-    description: 'Complete sentences about chemical bonding',
-    route: '/game/fill-blank',
+    id: 'moleculeBuilder',
+    titleKey: 'navigation.hub.moleculeBuilder',
+    descriptionKey: 'navigation.hub.moleculeBuilderDesc',
+    route: '/game/molecule-builder',
   },
 ];
 
 export function GameHub() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const { checkGameUnlocked, progress } = useProgress();
 
   return (
     <div className={styles.hub}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Game Hub</h1>
-        <p className={styles.subtitle}>Choose a game to start learning</p>
+        <div className={styles.headerContent}>
+          <h1 className={styles.title}>{t('navigation.hub.title')}</h1>
+          <p className={styles.subtitle}>{t('navigation.hub.selectGame')}</p>
+        </div>
+        <LanguageSelector />
       </header>
 
       <div className={styles.gameList}>
@@ -62,11 +68,11 @@ export function GameHub() {
             >
               <div className={styles.gameInfo}>
                 <h2 className={styles.gameTitle}>
-                  {game.title}
+                  {t(game.titleKey)}
                   {!isUnlocked && ' 🔒'}
                   {isCompleted && ' ✓'}
                 </h2>
-                <p className={styles.gameDescription}>{game.description}</p>
+                <p className={styles.gameDescription}>{t(game.descriptionKey)}</p>
 
                 {gameProgress && isUnlocked && (
                   <div className={styles.stats}>
@@ -84,7 +90,7 @@ export function GameHub() {
                 onClick={() => navigate(game.route)}
                 disabled={!isUnlocked}
               >
-                {isCompleted ? 'Play Again' : isUnlocked ? 'Play' : 'Locked'}
+                {isCompleted ? t('common.tryAgain') : isUnlocked ? 'Play' : 'Locked'}
               </Button>
             </div>
           );

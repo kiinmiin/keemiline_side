@@ -7,6 +7,16 @@
 .header {
   text-align: center;
   padding: var(--spacing-xl) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.headerContent {
+  flex: 1;
 }
 
 .title {

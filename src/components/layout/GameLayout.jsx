@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { LanguageSelector } from '../common/LanguageSelector';
 import styles from './GameLayout.module.css';
 
 export function GameLayout({
@@ -26,11 +27,14 @@ export function GameLayout({
           ← Back
         </button>
         <h1 className={styles.title}>{title}</h1>
-        {showProgress && currentStep && totalSteps && (
-          <div className={styles.progress}>
-            {currentStep} / {totalSteps}
-          </div>
-        )}
+        <div className={styles.headerRight}>
+          {showProgress && currentStep && totalSteps && (
+            <div className={styles.progress}>
+              {currentStep} / {totalSteps}
+            </div>
+          )}
+          <LanguageSelector />
+        </div>
       </header>
 
       <main className={styles.content}>{children}</main>

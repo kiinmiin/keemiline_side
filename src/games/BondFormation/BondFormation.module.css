@@ -106,7 +106,7 @@
   padding: var(--spacing-lg);
   border-radius: var(--radius-md);
   text-align: center;
-  cursor: pointer;
+  cursor: grab;
   transition: all 0.2s ease;
   box-shadow: var(--shadow-sm);
   border: 3px solid transparent;
@@ -114,17 +114,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  touch-action: none;
+  user-select: none;
 }
 
 .atomCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  cursor: grab;
+}
+
+.atomCard:active {
+  cursor: grabbing;
 }
 
 .atomCard.selected {
   border-color: #fbbf24;
   box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.3);
   animation: pulse 1s infinite;
+}
+
+.atomCard:active {
+  cursor: grabbing;
+}
+
+.atomCard.activeDropZone {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.5);
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+  transform: scale(1.05);
 }
 
 @keyframes pulse {

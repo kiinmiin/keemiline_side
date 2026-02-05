@@ -6,7 +6,10 @@
 export const gameUnlockConditions = {
   bondTypesSorting: true, // Always unlocked (first game)
   bondFormation: 'bondTypesSorting',
-  conceptQuestions: 'bondFormation',
+  electronegativityMatch: 'bondFormation',
+  bondPolarityQuiz: 'electronegativityMatch',
+  moleculeBuilder: 'bondPolarityQuiz',
+  conceptQuestions: 'moleculeBuilder',
   atomicStructure: 'conceptQuestions',
   fillInTheBlank: 'atomicStructure',
 };

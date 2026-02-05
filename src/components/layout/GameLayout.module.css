@@ -30,6 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .backButton:hover {
@@ -42,6 +43,14 @@
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
+  min-width: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
 }
 
 .progress {
