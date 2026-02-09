@@ -1,6 +1,6 @@
 # Keemiline - Chemistry Education Web App
 
-https://keemilineside.vercel.app/
+https://keemiline-side.vercel.app/
 
 ## License
 Educational project for chemistry learning.
