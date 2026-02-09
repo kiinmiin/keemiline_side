@@ -4,8 +4,10 @@ import styles from './Card.module.css';
 export function Card({
   id,
   content,
+  children,
   draggable = true,
   state = 'default',
+  variant,
   onDragStart,
   onDragEnd,
   onClick,
@@ -13,9 +15,11 @@ export function Card({
 }) {
   const cardRef = useRef(null);
 
+  const resolvedState = variant || state;
+
   const className = [
     styles.card,
-    styles[state],
+    styles[resolvedState],
     isDragging && styles.dragging,
     !draggable && styles.notDraggable,
   ]
@@ -45,7 +49,7 @@ export function Card({
       tabIndex={draggable ? 0 : -1}
       aria-label={content}
     >
-      {content}
+      {children || content}
     </div>
   );
 }
