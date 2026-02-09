@@ -71,12 +71,12 @@ export function BondPolarityQuiz() {
       if (isCorrect) {
         setFeedback({
           type: 'success',
-          message: `${t('games.bondPolarityQuiz.correct')} ${bond.explanation}`,
+          message: `${t('games.bondPolarityQuiz.correct')} ${t(`games.bondPolarityQuiz.bondData.${bondId}.explanation`)}`,
         });
       } else {
         setFeedback({
           type: 'error',
-          message: `${t('games.bondPolarityQuiz.notQuite')} ${bond.explanation}`,
+          message: `${t('games.bondPolarityQuiz.notQuite')} ${t(`games.bondPolarityQuiz.bondData.${bondId}.explanation`)}`,
         });
       }
 

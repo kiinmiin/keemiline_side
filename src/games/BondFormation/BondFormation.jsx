@@ -52,7 +52,7 @@ export function BondFormation() {
 
         setFeedback({
           type: 'success',
-          message: `${t('games.bondFormation.correct')} ${atom1.symbol} + ${atom2.symbol} → ${matchingPair.compound} (${matchingPair.name})`,
+          message: `${t('games.bondFormation.correct')} ${atom1.symbol} + ${atom2.symbol} → ${matchingPair.compound} (${t(`games.bondFormation.pairData.${matchingPair.id}.name`)})`,
         });
 
         // Remove atoms from available
@@ -166,8 +166,8 @@ export function BondFormation() {
               {formedBonds.map((bond, index) => (
                 <div key={index} className={styles.bondCard}>
                   <div className={styles.bondFormula}>{bond.compound}</div>
-                  <div className={styles.bondName}>{bond.name}</div>
-                  <div className={styles.bondType}>{bond.bondType}</div>
+                  <div className={styles.bondName}>{t(`games.bondFormation.pairData.${bond.id}.name`)}</div>
+                  <div className={styles.bondType}>{t(`games.bondFormation.pairData.${bond.id}.bondType`)}</div>
                 </div>
               ))}
             </div>
@@ -194,7 +194,7 @@ export function BondFormation() {
                 onPointerCancel={(e) => handleDragEnd(e, null)}
               >
                 <div className={styles.atomSymbol}>{atom.symbol}</div>
-                <div className={styles.atomName}>{atom.name}</div>
+                <div className={styles.atomName}>{t(`games.bondFormation.atomData.${atom.id}.name`)}</div>
                 <div className={styles.atomElectrons}>
                   {atom.electrons} {t('games.bondFormation.valenceElectrons')}
                 </div>

@@ -34,13 +34,15 @@
   box-shadow: var(--shadow-lg);
 }
 
-.correct {
+.correct,
+.success {
   background-color: #dcfce7;
   border-color: var(--color-success);
   color: #166534;
 }
 
-.incorrect {
+.incorrect,
+.error {
   background-color: #fee2e2;
   border-color: var(--color-error);
   color: #991b1b;

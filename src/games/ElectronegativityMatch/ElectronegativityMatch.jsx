@@ -172,7 +172,7 @@ export function ElectronegativityMatch() {
                     onPointerUp={(e) => handleDragEnd(e, handleDropValue)}
                   >
                     <div className={styles.elementSymbol}>{element.symbol}</div>
-                    <div className={styles.elementName}>{element.name}</div>
+                    <div className={styles.elementName}>{t(`games.electronegativityMatch.elementData.${element.id}.name`)}</div>
                     {matched && (
                       <div className={styles.matchedValue}>
                         {matched.value.display}

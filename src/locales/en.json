@@ -48,7 +48,23 @@
       "correct": "Correct!",
       "noBond": "{atom1} and {atom2} don't form a stable bond in this exercise. Try different combinations!",
       "needToPass": "You need at least {score} correct bonds to pass. Try again!",
-      "successMessage": "Excellent! You've successfully formed all the chemical bonds!"
+      "successMessage": "Excellent! You've successfully formed all the chemical bonds!",
+      "atomData": {
+        "sodium": { "name": "Sodium" },
+        "chlorine": { "name": "Chlorine" },
+        "hydrogen1": { "name": "Hydrogen" },
+        "hydrogen2": { "name": "Hydrogen" },
+        "magnesium": { "name": "Magnesium" },
+        "oxygen": { "name": "Oxygen" },
+        "carbon": { "name": "Carbon" },
+        "oxygen2": { "name": "Oxygen" }
+      },
+      "pairData": {
+        "nacl": { "name": "Sodium Chloride (Table Salt)", "bondType": "Ionic Bond", "explanation": "Sodium loses 1 electron to chlorine, forming Na⁺ and Cl⁻ ions that attract each other. This is an ionic bond formed by electron transfer." },
+        "h2": { "name": "Hydrogen Gas", "bondType": "Covalent Bond", "explanation": "Two hydrogen atoms share their electrons to form a stable molecule. This is a covalent bond formed by electron sharing." },
+        "mgo": { "name": "Magnesium Oxide", "bondType": "Ionic Bond", "explanation": "Magnesium loses 2 electrons to oxygen, forming Mg²⁺ and O²⁻ ions that attract each other. This is an ionic bond." },
+        "co2-partial": { "name": "Carbon-Oxygen Bond", "bondType": "Covalent Bond", "explanation": "Carbon and oxygen share electrons to form a double covalent bond. In CO₂, carbon forms double bonds with two oxygen atoms." }
+      }
     },
     "bondTypesSorting": {
       "title": "Chemical Bond Types",
@@ -75,7 +91,14 @@
       "notChemicalBonds": "Not Chemical Bonds",
       "availableItems": "Available Items",
       "clickHere": "Click here to place",
-      "noItems": "No items yet"
+      "noItems": "No items yet",
+      "items": {
+        "ionic": { "name": "Ionic Bond", "explanation": "Ionic bonds are chemical bonds formed when electrons are transferred from one atom to another, creating charged ions that attract each other." },
+        "covalent": { "name": "Covalent Bond", "explanation": "Covalent bonds are chemical bonds where atoms share electrons to achieve stable electron configurations." },
+        "metallic": { "name": "Metallic Bond", "explanation": "Metallic bonds are chemical bonds where electrons are shared among many atoms in a \"sea of electrons,\" common in metals." },
+        "hydrogen": { "name": "Hydrogen Bond", "explanation": "Hydrogen bonds are intermolecular forces (not true chemical bonds) between molecules containing hydrogen and electronegative atoms." },
+        "vanderwaals": { "name": "Van der Waals Forces", "explanation": "Van der Waals forces are weak intermolecular attractions (not chemical bonds) between molecules or parts of molecules." }
+      }
     },
     "electronegativityMatch": {
       "title": "Electronegativity Match",
@@ -91,7 +114,17 @@
       "playAgain": "Play Again",
       "backToHub": "Back to Hub",
       "needToPass": "You need at least {score} correct matches to pass. Try again!",
-      "successMessage": "Excellent! You understand electronegativity values!"
+      "successMessage": "Excellent! You understand electronegativity values!",
+      "elementData": {
+        "fluorine": { "name": "Fluorine" },
+        "oxygen": { "name": "Oxygen" },
+        "nitrogen": { "name": "Nitrogen" },
+        "chlorine": { "name": "Chlorine" },
+        "carbon": { "name": "Carbon" },
+        "hydrogen": { "name": "Hydrogen" },
+        "sodium": { "name": "Sodium" },
+        "potassium": { "name": "Potassium" }
+      }
     },
     "bondPolarityQuiz": {
       "title": "Bond Polarity Quiz",
@@ -106,7 +139,19 @@
       "playAgain": "Play Again",
       "backToHub": "Back to Hub",
       "needToPass": "You need at least {score} correct to pass. Try again!",
-      "successMessage": "Great job! You understand bond polarity!"
+      "successMessage": "Great job! You understand bond polarity!",
+      "bondData": {
+        "h2": { "explanation": "Two identical atoms have no electronegativity difference, so the bond is nonpolar." },
+        "hcl": { "explanation": "Chlorine (3.0) is more electronegative than hydrogen (2.1), creating a polar bond." },
+        "nacl": { "explanation": "Large electronegativity difference (2.1) creates a highly polar/ionic bond." },
+        "o2": { "explanation": "Identical atoms share electrons equally, resulting in a nonpolar bond." },
+        "h2o": { "explanation": "Oxygen (3.5) is more electronegative than hydrogen (2.1), making O-H bonds polar." },
+        "co2_co": { "explanation": "Oxygen (3.5) is more electronegative than carbon (2.5), creating polar C=O bonds." },
+        "n2": { "explanation": "Two nitrogen atoms share electrons equally in a nonpolar triple bond." },
+        "ch": { "explanation": "Small electronegativity difference (0.4) makes C-H bonds essentially nonpolar." },
+        "nh": { "explanation": "Nitrogen (3.0) is more electronegative than hydrogen (2.1), creating polar bonds." },
+        "cl2": { "explanation": "Two chlorine atoms share electrons equally in a nonpolar bond." }
+      }
     },
     "moleculeBuilder": {
       "title": "Molecule Builder",
@@ -126,7 +171,27 @@
       "playAgain": "Play Again",
       "backToHub": "Back to Hub",
       "needToPass": "You need at least {score} correct molecules to pass. Try again!",
-      "successMessage": "Excellent! You built all the molecules correctly!"
+      "successMessage": "Excellent! You built all the molecules correctly!",
+      "moleculeData": {
+        "water": { "name": "Water", "hint": "One oxygen atom bonds with two hydrogen atoms", "explanation": "Water has two O-H covalent bonds with a bent molecular geometry due to two lone pairs on oxygen." },
+        "methane": { "name": "Methane", "hint": "One carbon atom bonds with four hydrogen atoms", "explanation": "Methane has four C-H covalent bonds arranged in a tetrahedral shape." },
+        "ammonia": { "name": "Ammonia", "hint": "One nitrogen atom bonds with three hydrogen atoms", "explanation": "Ammonia has three N-H covalent bonds with a trigonal pyramidal shape due to one lone pair on nitrogen." },
+        "carbonDioxide": { "name": "Carbon Dioxide", "hint": "One carbon atom double-bonds with two oxygen atoms", "explanation": "Carbon dioxide has two C=O double bonds arranged in a linear geometry." },
+        "hydrogenChloride": { "name": "Hydrogen Chloride", "hint": "One hydrogen atom bonds with one chlorine atom", "explanation": "HCl is a diatomic molecule with one polar covalent bond." },
+        "sodiumChloride": { "name": "Sodium Chloride", "hint": "Sodium loses an electron to chlorine", "explanation": "NaCl forms through ionic bonding where Na donates an electron to Cl." }
+      },
+      "atomData": {
+        "H": { "name": "Hydrogen" },
+        "O": { "name": "Oxygen" },
+        "C": { "name": "Carbon" },
+        "N": { "name": "Nitrogen" },
+        "Cl": { "name": "Chlorine" },
+        "Na": { "name": "Sodium" }
+      },
+      "bondTypeData": {
+        "covalent": { "name": "Covalent Bond", "description": "Atoms share electrons" },
+        "ionic": { "name": "Ionic Bond", "description": "Electron transfer between atoms" }
+      }
     }
   }
 }

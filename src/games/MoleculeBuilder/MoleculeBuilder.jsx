@@ -64,6 +64,7 @@ export function MoleculeBuilder() {
 
     // Store result
     const result = {
+      moleculeId: molecule.id,
       molecule: molecule.name,
       isCorrect,
       selectedAtoms: [...selectedAtoms],
@@ -75,7 +76,7 @@ export function MoleculeBuilder() {
     if (isCorrect) {
       setFeedback({
         type: 'success',
-        message: `${t('games.moleculeBuilder.correct')} ${molecule.explanation}`,
+        message: `${t('games.moleculeBuilder.correct')} ${t(`games.moleculeBuilder.moleculeData.${molecule.id}.explanation`)}`,
       });
     } else {
       let errorMessage = t('games.moleculeBuilder.notQuite');
@@ -136,7 +137,7 @@ export function MoleculeBuilder() {
                 key={index}
                 className={`${styles.resultItem} ${result.isCorrect ? styles.correct : styles.incorrect}`}
               >
-                <span className={styles.resultMolecule}>{result.molecule}</span>
+                <span className={styles.resultMolecule}>{t(`games.moleculeBuilder.moleculeData.${result.moleculeId}.name`)}</span>
                 <span className={styles.resultStatus}>
                   {result.isCorrect ? '✓' : '✗'}
                 </span>
@@ -173,9 +174,9 @@ export function MoleculeBuilder() {
         </div>
 
         <div className={styles.targetMolecule}>
-          <h2 className={styles.targetName}>{currentMolecule.name}</h2>
+          <h2 className={styles.targetName}>{t(`games.moleculeBuilder.moleculeData.${currentMolecule.id}.name`)}</h2>
           <p className={styles.targetFormula}>{currentMolecule.formula}</p>
-          <p className={styles.targetHint}>{currentMolecule.hint}</p>
+          <p className={styles.targetHint}>{t(`games.moleculeBuilder.moleculeData.${currentMolecule.id}.hint`)}</p>
         </div>
 
         {feedback && (
@@ -215,7 +216,7 @@ export function MoleculeBuilder() {
                   className={`${styles.bondButton} ${selectedBondType === bond.id ? styles.selected : ''}`}
                   onClick={() => setSelectedBondType(bond.id)}
                 >
-                  {bond.name}
+                  {t(`games.moleculeBuilder.bondTypeData.${bond.id}.name`)}
                 </button>
               ))}
             </div>
@@ -232,7 +233,7 @@ export function MoleculeBuilder() {
                 onClick={() => addAtom(atom.id)}
               >
                 <span className={styles.atomSymbol}>{atom.symbol}</span>
-                <span className={styles.atomName}>{atom.name}</span>
+                <span className={styles.atomName}>{t(`games.moleculeBuilder.atomData.${atom.id}.name`)}</span>
                 <span className={styles.atomValence}>{t('games.moleculeBuilder.valence')}: {atom.valence}</span>
               </button>
             ))}

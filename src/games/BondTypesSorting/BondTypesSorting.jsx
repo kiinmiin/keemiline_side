@@ -72,12 +72,12 @@ export function BondTypesSorting() {
       if (isCorrect) {
         setFeedback({
           type: 'success',
-          message: `${t('games.bondTypesSorting.correct')} ${item.explanation}`,
+          message: `${t('games.bondTypesSorting.correct')} ${t(`games.bondTypesSorting.items.${item.id}.explanation`)}`,
         });
       } else {
         setFeedback({
           type: 'error',
-          message: `${t('games.bondTypesSorting.notQuite')} ${item.explanation}`,
+          message: `${t('games.bondTypesSorting.notQuite')} ${t(`games.bondTypesSorting.items.${item.id}.explanation`)}`,
         });
       }
 
@@ -186,7 +186,7 @@ export function BondTypesSorting() {
                     <Card
                       key={item.id}
                       id={item.id}
-                      content={item.name}
+                      content={t(`games.bondTypesSorting.items.${item.id}.name`)}
                       draggable={false}
                       state={itemStates[item.id]}
                     />
@@ -213,7 +213,7 @@ export function BondTypesSorting() {
               >
                 <Card
                   id={item.id}
-                  content={item.name}
+                  content={t(`games.bondTypesSorting.items.${item.id}.name`)}
                   draggable={false}
                   state="default"
                 />

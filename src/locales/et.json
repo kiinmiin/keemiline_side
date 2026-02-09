@@ -48,7 +48,23 @@
       "correct": "Õige!",
       "noBond": "{atom1} ja {atom2} ei moodusta selles harjutuses stabiilset sidet. Proovi teisi kombinatsioone!",
       "needToPass": "Läbimiseks vajad vähemalt {score} õiget sidet. Proovi uuesti!",
-      "successMessage": "Suurepärane! Oled edukalt moodustanud kõik keemilised sidemed!"
+      "successMessage": "Suurepärane! Oled edukalt moodustanud kõik keemilised sidemed!",
+      "atomData": {
+        "sodium": { "name": "Naatrium" },
+        "chlorine": { "name": "Kloor" },
+        "hydrogen1": { "name": "Vesinik" },
+        "hydrogen2": { "name": "Vesinik" },
+        "magnesium": { "name": "Magneesium" },
+        "oxygen": { "name": "Hapnik" },
+        "carbon": { "name": "Süsinik" },
+        "oxygen2": { "name": "Hapnik" }
+      },
+      "pairData": {
+        "nacl": { "name": "Naatriumkloriid (lauasool)", "bondType": "Iooniline side", "explanation": "Naatrium kaotab 1 elektroni kloorile, moodustades Na⁺ ja Cl⁻ ioonid, mis tõmbavad üksteist. See on iooniline side, mis tekib elektronide ülekande teel." },
+        "h2": { "name": "Vesinikgaas", "bondType": "Kovalentne side", "explanation": "Kaks vesinikaatomit jagavad oma elektrone stabiilse molekuli moodustamiseks. See on kovalentne side, mis tekib elektronide jagamise teel." },
+        "mgo": { "name": "Magneesiumoksiid", "bondType": "Iooniline side", "explanation": "Magneesium kaotab 2 elektroni hapnikule, moodustades Mg²⁺ ja O²⁻ ioonid, mis tõmbavad üksteist. See on iooniline side." },
+        "co2-partial": { "name": "Süsiniku-hapniku side", "bondType": "Kovalentne side", "explanation": "Süsinik ja hapnik jagavad elektrone kaksiksideme moodustamiseks. CO₂-s moodustab süsinik kahe hapnikuaatomiga kaksiksidemed." }
+      }
     },
     "bondTypesSorting": {
       "title": "Keemiliste sidemete tüübid",
@@ -75,7 +91,14 @@
       "notChemicalBonds": "Mitte keemilised sidemed",
       "availableItems": "Saadaolevad üksused",
       "clickHere": "Klõpsake siia, et paigutada",
-      "noItems": "Üksusi veel pole"
+      "noItems": "Üksusi veel pole",
+      "items": {
+        "ionic": { "name": "Iooniline side", "explanation": "Ioonilised sidemed on keemilised sidemed, mis moodustuvad, kui elektronid kantakse ühelt aatomilt teisele, luues laetud ioonid, mis tõmbavad üksteist." },
+        "covalent": { "name": "Kovalentne side", "explanation": "Kovalentsed sidemed on keemilised sidemed, kus aatomid jagavad elektrone stabiilsete elektronkonfiguratsioonide saavutamiseks." },
+        "metallic": { "name": "Metalliline side", "explanation": "Metallilised sidemed on keemilised sidemed, kus elektronid jagatakse paljude aatomite vahel \"elektronide meres\", mis on levinud metallides." },
+        "hydrogen": { "name": "Vesinikside", "explanation": "Vesiniksidemed on intermolekulaarsed jõud (mitte tõelised keemilised sidemed) molekulide vahel, mis sisaldavad vesinikku ja elektronnegatiivseid aatomeid." },
+        "vanderwaals": { "name": "Van der Waalsi jõud", "explanation": "Van der Waalsi jõud on nõrgad intermolekulaarsed tõmbejõud (mitte keemilised sidemed) molekulide või molekulide osade vahel." }
+      }
     },
     "electronegativityMatch": {
       "title": "Elektronegatiivsuse sobitamine",
@@ -91,7 +114,17 @@
       "playAgain": "Mängi uuesti",
       "backToHub": "Tagasi mängude keskusesse",
       "needToPass": "Läbimiseks vajad vähemalt {score} õiget vastet. Proovi uuesti!",
-      "successMessage": "Suurepärane! Sa mõistad elektronegatiivsuse väärtusi!"
+      "successMessage": "Suurepärane! Sa mõistad elektronegatiivsuse väärtusi!",
+      "elementData": {
+        "fluorine": { "name": "Fluor" },
+        "oxygen": { "name": "Hapnik" },
+        "nitrogen": { "name": "Lämmastik" },
+        "chlorine": { "name": "Kloor" },
+        "carbon": { "name": "Süsinik" },
+        "hydrogen": { "name": "Vesinik" },
+        "sodium": { "name": "Naatrium" },
+        "potassium": { "name": "Kaalium" }
+      }
     },
     "bondPolarityQuiz": {
       "title": "Sideme polaarsuse viktoriin",
@@ -106,7 +139,19 @@
       "playAgain": "Mängi uuesti",
       "backToHub": "Tagasi mängude keskusesse",
       "needToPass": "Läbimiseks vajad vähemalt {score} õiget vastust. Proovi uuesti!",
-      "successMessage": "Suurepärane! Sa mõistad sideme polaarsust!"
+      "successMessage": "Suurepärane! Sa mõistad sideme polaarsust!",
+      "bondData": {
+        "h2": { "explanation": "Kahel identsel aatomil pole elektronegatiivsuse erinevust, seega on side mittepolaarne." },
+        "hcl": { "explanation": "Kloor (3,0) on elektronnegatiivsem kui vesinik (2,1), tekitades polaarse sideme." },
+        "nacl": { "explanation": "Suur elektronegatiivsuse erinevus (2,1) tekitab tugevalt polaarse/ioonilise sideme." },
+        "o2": { "explanation": "Identsed aatomid jagavad elektrone võrdselt, mille tulemuseks on mittepolaarne side." },
+        "h2o": { "explanation": "Hapnik (3,5) on elektronnegatiivsem kui vesinik (2,1), muutes O-H sidemed polaarseks." },
+        "co2_co": { "explanation": "Hapnik (3,5) on elektronnegatiivsem kui süsinik (2,5), tekitades polaarsed C=O sidemed." },
+        "n2": { "explanation": "Kaks lämmastikuaatomit jagavad elektrone võrdselt mittepolaarses kolmiksidemes." },
+        "ch": { "explanation": "Väike elektronegatiivsuse erinevus (0,4) muudab C-H sidemed sisuliselt mittepolaarseks." },
+        "nh": { "explanation": "Lämmastik (3,0) on elektronnegatiivsem kui vesinik (2,1), tekitades polaarsed sidemed." },
+        "cl2": { "explanation": "Kaks klooriaatomit jagavad elektrone võrdselt mittepolaarses sidemes." }
+      }
     },
     "moleculeBuilder": {
       "title": "Molekulide ehitaja",
@@ -126,7 +171,27 @@
       "playAgain": "Mängi uuesti",
       "backToHub": "Tagasi mängude keskusesse",
       "needToPass": "Läbimiseks vajad vähemalt {score} õiget molekuli. Proovi uuesti!",
-      "successMessage": "Suurepärane! Ehitasid kõik molekulid õigesti!"
+      "successMessage": "Suurepärane! Ehitasid kõik molekulid õigesti!",
+      "moleculeData": {
+        "water": { "name": "Vesi", "hint": "Üks hapnikuaatom seondub kahe vesinikaatomiga", "explanation": "Veel on kaks O-H kovalentset sidet nurgakujulise molekulaargeomeetriaga hapniku kahe üksikpaari tõttu." },
+        "methane": { "name": "Metaan", "hint": "Üks süsinikuaatom seondub nelja vesinikaatomiga", "explanation": "Metaanil on neli C-H kovalentset sidet tetraeedrilise kujuga." },
+        "ammonia": { "name": "Ammoniaak", "hint": "Üks lämmastikuaatom seondub kolme vesinikaatomiga", "explanation": "Ammoniaaigil on kolm N-H kovalentset sidet trigonaalse püramiidi kujuga lämmastiku ühe üksikpaari tõttu." },
+        "carbonDioxide": { "name": "Süsinikdioksiid", "hint": "Üks süsinikuaatom moodustab kaksikside kahe hapnikuaatomiga", "explanation": "Süsinikdioksiidil on kaks C=O kaksiksidet lineaarses geomeetrias." },
+        "hydrogenChloride": { "name": "Vesinikkloriid", "hint": "Üks vesinikaatom seondub ühe klooriaatomiga", "explanation": "HCl on kaheaatomiline molekul ühe polaarse kovalentse sidemega." },
+        "sodiumChloride": { "name": "Naatriumkloriid", "hint": "Naatrium kaotab elektroni kloorile", "explanation": "NaCl moodustub ioonilise sideme kaudu, kus Na annab elektroni Cl-le." }
+      },
+      "atomData": {
+        "H": { "name": "Vesinik" },
+        "O": { "name": "Hapnik" },
+        "C": { "name": "Süsinik" },
+        "N": { "name": "Lämmastik" },
+        "Cl": { "name": "Kloor" },
+        "Na": { "name": "Naatrium" }
+      },
+      "bondTypeData": {
+        "covalent": { "name": "Kovalentne side", "description": "Aatomid jagavad elektrone" },
+        "ionic": { "name": "Iooniline side", "description": "Elektronide ülekanne aatomite vahel" }
+      }
     }
   }
 }
