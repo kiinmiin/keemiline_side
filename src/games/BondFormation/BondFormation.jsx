@@ -124,7 +124,7 @@ export function BondFormation() {
           )}
 
           <div className={styles.buttonGroup}>
-            <Button variant="secondary" onClick={() => window.location.reload()}>
+            <Button variant="secondary" onClick={() => navigate('/game/bond-polarity')}>
               {t('games.bondFormation.playAgain')}
             </Button>
             <Button variant="primary" onClick={() => navigate('/hub')}>
