@@ -15,6 +15,7 @@
     "splash": {
       "title": "Tere tulemast Keemiline'i",
       "subtitle": "Keemia õppimise mängud",
+      "desc": "Õpi keemilise sideme põhitõdesid haaravate minimängude abil, mis muudavad keemia õppimise lõbusaks ja interaktiivseks.",
       "startButton": "Alusta õppimist"
     },
     "hub": {
@@ -22,7 +23,7 @@
       "selectGame": "Valige mäng alustamiseks",
       "bondFormation": "Keemiliste sidemete moodustumine",
       "bondFormationDesc": "Õppige, kuidas keemilised sidemed aatomite vahel moodustuvad",
-      "bondTypesSorting": "Keemiliste sidemete tüüpide sortimine",
+      "bondTypesSorting": "Keemiliste sidemete tüüpide liigitamine",
       "bondTypesSortingDesc": "Liigitada erinevad keemiliste sidemete tüübid",
       "electronegativityMatch": "Elektronegatiivsuse sobitamine",
       "electronegativityMatchDesc": "Sobitage elemendid nende elektronegatiivsuse väärtustega",
@@ -30,7 +31,11 @@
       "bondPolarityQuizDesc": "Määrake, kas sidemed on polaarsed või mittepolaarsed",
       "moleculeBuilder": "Molekulide ehitaja",
       "moleculeBuilderDesc": "Ehitage molekule, valides aatomeid ja sideme tüüpe",
-      "settings": "Seaded"
+      "settings": "Seaded",
+      "buttonTextPlay": "Alusta",
+      "buttonTextLocked": "Lukus",
+      "attemptsText": "Katseid:",
+      "scoreText": "Skoor:"
     }
   },
   "games": {

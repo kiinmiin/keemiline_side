@@ -76,9 +76,9 @@ export function GameHub() {
 
                 {gameProgress && isUnlocked && (
                   <div className={styles.stats}>
-                    Attempts: {gameProgress.attempts || 0}
+                    {t('navigation.hub.attemptsText')}  {gameProgress.attempts || 0}
                     {gameProgress.score !== undefined && (
-                      <> • Score: {gameProgress.score}/{gameProgress.totalItems}</>
+                      <> • {t('navigation.hub.scoreText')} {gameProgress.score}/{gameProgress.totalItems}</>
                     )}
                   </div>
                 )}
@@ -90,7 +90,7 @@ export function GameHub() {
                 onClick={() => navigate(game.route)}
                 disabled={!isUnlocked}
               >
-                {isCompleted ? t('common.tryAgain') : isUnlocked ? 'Play' : 'Locked'}
+                {isCompleted ? t('common.tryAgain') : isUnlocked ? t('navigation.hub.buttonTextPlay') : t('navigation.hub.buttonTextLocked')}
               </Button>
             </div>
           );

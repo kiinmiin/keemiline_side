@@ -15,6 +15,7 @@
     "splash": {
       "title": "Welcome to Keemiline",
       "subtitle": "Chemistry Learning Games",
+      "desc": "Master the fundamentals of chemical bonding with engaging mini-games that make learning chemistry fun and interactive.",
       "startButton": "Start Learning"
     },
     "hub": {
@@ -30,7 +31,11 @@
       "bondPolarityQuizDesc": "Determine if bonds are polar or nonpolar",
       "moleculeBuilder": "Molecule Builder",
       "moleculeBuilderDesc": "Build molecules by selecting atoms and bond types",
-      "settings": "Settings"
+      "settings": "Settings",
+      "buttonTextPlay": "Play",
+      "buttonTextLocked": "Locked",
+      "attemptsText": "Attempts:",
+      "scoreText": "Score:"
     }
   },
   "games": {

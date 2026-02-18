@@ -19,8 +19,7 @@ export function SplashScreen() {
 
         <div className={styles.description}>
           <p>
-            Master the fundamentals of chemical bonding with engaging mini-games
-            that make learning chemistry fun and interactive.
+            {t('navigation.splash.desc')}
           </p>
         </div>
 

@@ -31,13 +31,13 @@ export const bondTypesData = {
       explanation:
         'Hydrogen bonds are intermolecular forces (not true chemical bonds) between molecules containing hydrogen and electronegative atoms.',
     },
-    {
-      id: 'vanderwaals',
-      name: 'Van der Waals Forces',
-      isChemicalBond: false,
-      explanation:
-        'Van der Waals forces are weak intermolecular attractions (not chemical bonds) between molecules or parts of molecules.',
-    },
+    // {
+    //   id: 'vanderwaals',
+    //   name: 'Van der Waals Forces',
+    //   isChemicalBond: false,
+    //   explanation:
+    //     'Van der Waals forces are weak intermolecular attractions (not chemical bonds) between molecules or parts of molecules.',
+    // },
   ],
 
   zones: [
@@ -48,6 +48,6 @@ export const bondTypesData = {
   successMessage: 'Great job! You correctly identified all chemical bonds.',
 
   // Scoring
-  totalItems: 5,
-  passingScore: 4, // Need 4/5 correct to pass
+  totalItems: 4,
+  passingScore: 3, // Need 3/4 correct to pass
 };

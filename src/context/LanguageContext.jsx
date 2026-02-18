@@ -10,7 +10,7 @@ const translations = {
 };
 
 const SUPPORTED_LANGUAGES = ['en', 'et'];
-const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_LANGUAGE = 'et';
 
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(() => {
