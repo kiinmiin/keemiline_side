@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GameLayout } from '../../components/layout/GameLayout';
 import { Card } from '../../components/common/Card';
@@ -86,7 +86,7 @@ export function BondTypesSorting() {
     [availableItems, validatePlacement, t]
   );
 
-  const checkCompletion = () => {
+  const checkCompletion = useCallback(() => {
     const totalPlaced = Object.values(placedItems).reduce(
       (sum, items) => sum + items.length,
       0
@@ -107,11 +107,23 @@ export function BondTypesSorting() {
 
       setShowCompletion(true);
     }
-  };
+  }, [placedItems, itemStates, updateProgress]);
 
   const getScore = () => {
     return Object.values(itemStates).filter((state) => state === 'correct').length;
   };
+
+  useEffect(() => {
+    if (availableItems.length === 0 && !showCompletion) {
+      const timer = setTimeout(() => {
+        checkCompletion();
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+
+    return undefined;
+  }, [availableItems.length, showCompletion, checkCompletion]);
 
   if (showCompletion) {
     const score = getScore();
@@ -222,13 +234,6 @@ export function BondTypesSorting() {
           </div>
         </div>
 
-        {availableItems.length === 0 && (
-          <div className={styles.checkButton}>
-            <Button variant="success" size="large" fullWidth onClick={checkCompletion}>
-              {t('games.bondTypesSorting.checkResults')}
-            </Button>
-          </div>
-        )}
       </div>
     </GameLayout>
   );
