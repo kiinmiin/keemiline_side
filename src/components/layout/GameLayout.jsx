@@ -8,6 +8,7 @@ export function GameLayout({
   showProgress = false,
   currentStep,
   totalSteps,
+  wideContent = false,
   children,
 }) {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ export function GameLayout({
         </div>
       </header>
 
-      <main className={styles.content}>{children}</main>
+      <main className={`${styles.content} ${wideContent ? styles.contentWide : ''}`}>{children}</main>
     </div>
   );
 }

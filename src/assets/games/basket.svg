@@ -1,0 +1,15 @@
+<svg width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="basketBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A16207"/>
+      <stop offset="1" stop-color="#78350F"/>
+    </linearGradient>
+  </defs>
+  <path d="M28 46C28 25 45 8 66 8H154C175 8 192 25 192 46" stroke="#7C2D12" stroke-width="10" stroke-linecap="round"/>
+  <rect x="14" y="34" width="192" height="74" rx="16" fill="url(#basketBody)"/>
+  <path d="M18 48H202" stroke="#B45309" stroke-width="6"/>
+  <path d="M26 64H194" stroke="#B45309" stroke-width="5"/>
+  <path d="M22 80H198" stroke="#B45309" stroke-width="5"/>
+  <path d="M30 96H190" stroke="#B45309" stroke-width="5"/>
+  <path d="M48 36V108M72 36V108M96 36V108M120 36V108M144 36V108M168 36V108" stroke="#92400E" stroke-width="4"/>
+</svg>

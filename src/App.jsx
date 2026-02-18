@@ -8,6 +8,7 @@ import { BondFormation } from './games/BondFormation/BondFormation';
 import { ElectronegativityMatch } from './games/ElectronegativityMatch/ElectronegativityMatch';
 import { BondPolarityQuiz } from './games/BondPolarityQuiz/BondPolarityQuiz';
 import { MoleculeBuilder } from './games/MoleculeBuilder/MoleculeBuilder';
+import { BondBasketCatcher } from './games/BondBasketCatcher/BondBasketCatcher';
 import './App.module.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/game/electronegativity" element={<ElectronegativityMatch />} />
             <Route path="/game/bond-polarity" element={<BondPolarityQuiz />} />
             <Route path="/game/molecule-builder" element={<MoleculeBuilder />} />
+            <Route path="/game/bond-basket" element={<BondBasketCatcher />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>

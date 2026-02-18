@@ -36,6 +36,12 @@ const games = [
     descriptionKey: 'navigation.hub.moleculeBuilderDesc',
     route: '/game/molecule-builder',
   },
+  {
+    id: 'bondBasketCatcher',
+    titleKey: 'navigation.hub.bondBasketCatcher',
+    descriptionKey: 'navigation.hub.bondBasketCatcherDesc',
+    route: '/game/bond-basket',
+  },
 ];
 
 export function GameHub() {

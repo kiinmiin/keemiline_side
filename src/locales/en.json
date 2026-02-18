@@ -31,6 +31,8 @@
       "bondPolarityQuizDesc": "Determine if bonds are polar or nonpolar",
       "moleculeBuilder": "Molecule Builder",
       "moleculeBuilderDesc": "Build molecules by selecting atoms and bond types",
+      "bondBasketCatcher": "Bond Basket Catcher",
+      "bondBasketCatcherDesc": "Catch only the bond types your basket accepts right now",
       "settings": "Settings",
       "buttonTextPlay": "Play",
       "buttonTextLocked": "Locked",
@@ -196,6 +198,30 @@
       "bondTypeData": {
         "covalent": { "name": "Covalent Bond", "description": "Atoms share electrons" },
         "ionic": { "name": "Ionic Bond", "description": "Electron transfer between atoms" }
+      }
+    },
+    "bondBasketCatcher": {
+      "title": "Basket Game",
+      "instructions": "Move the basket and catch only the bond types it accepts right now.",
+      "basket": "Basket",
+      "basketAccepts": "Basket accepts:",
+      "scoreLabel": "Score",
+      "timeLeft": "Time left",
+      "correct": "Correct catches",
+      "wrong": "Wrong catches",
+      "missed": "Missed",
+      "correctCatch": "Nice catch!",
+      "wrongCatch": "Wrong type for the basket.",
+      "playAgain": "Play Again",
+      "backToHub": "Back to Hub",
+      "successMessage": "Great reflexes! You sorted bond types under pressure.",
+      "needToPass": "You need at least {score} correct catches to pass. Try again!",
+      "playAreaAria": "Game area for moving basket and catching falling bond items",
+      "types": {
+        "ionic": "Ionic Bonds",
+        "covalent": "Covalent Bonds",
+        "metallic": "Metallic Bonds",
+        "hydrogen": "Hydrogen Bonds"
       }
     }
   }

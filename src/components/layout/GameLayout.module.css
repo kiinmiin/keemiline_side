@@ -67,6 +67,10 @@
   margin: 0 auto;
 }
 
+.contentWide {
+  max-width: 1280px;
+}
+
 /* Responsive */
 @media (min-width: 768px) {
   .header {

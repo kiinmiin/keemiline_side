@@ -31,6 +31,8 @@
       "bondPolarityQuizDesc": "Määrake, kas sidemed on polaarsed või mittepolaarsed",
       "moleculeBuilder": "Molekulide ehitaja",
       "moleculeBuilderDesc": "Ehitage molekule, valides aatomeid ja sideme tüüpe",
+      "bondBasketCatcher": "Sidemekorvi püüdja",
+      "bondBasketCatcherDesc": "Püüa ainult neid sideme tüüpe, mida korv parasjagu vastu võtab",
       "settings": "Seaded",
       "buttonTextPlay": "Alusta",
       "buttonTextLocked": "Lukus",
@@ -196,6 +198,30 @@
       "bondTypeData": {
         "covalent": { "name": "Kovalentne side", "description": "Aatomid jagavad elektrone" },
         "ionic": { "name": "Iooniline side", "description": "Elektronide ülekanne aatomite vahel" }
+      }
+    },
+    "bondBasketCatcher": {
+      "title": "Korvi mäng",
+      "instructions": "Liiguta korvi ja püüa ainult neid sideme tüüpe, mida see parajasti vastu võtab.",
+      "basket": "Korv",
+      "basketAccepts": "Korv võtab vastu:",
+      "scoreLabel": "Skoor",
+      "timeLeft": "Aega jäänud",
+      "correct": "Õiged püüdmised",
+      "wrong": "Valed püüdmised",
+      "missed": "Mööda lastud",
+      "correctCatch": "Väga hea püüdmine!",
+      "wrongCatch": "Vale tüüp sellele korvile.",
+      "playAgain": "Mängi uuesti",
+      "backToHub": "Tagasi mängude keskusesse",
+      "successMessage": "Suurepärased refleksid! Sorteerisid sideme tüüpe kiiresti.",
+      "needToPass": "Läbimiseks vajad vähemalt {score} õiget püüdmist. Proovi uuesti!",
+      "playAreaAria": "Mänguala korvi liigutamiseks ja langevate sidemete püüdmiseks",
+      "types": {
+        "ionic": "Ioonilised sidemed",
+        "covalent": "Kovalentsed sidemed",
+        "metallic": "Metallilised sidemed",
+        "hydrogen": "Vesiniksidemed"
       }
     }
   }
