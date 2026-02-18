@@ -9,7 +9,7 @@ export const gameUnlockConditions = {
   electronegativityMatch: 'bondFormation',
   bondPolarityQuiz: 'electronegativityMatch',
   moleculeBuilder: 'bondPolarityQuiz',
-  bondBasketCatcher: true,
+  bondBasketCatcher: 'moleculeBuilder',
   conceptQuestions: 'moleculeBuilder',
   atomicStructure: 'conceptQuestions',
   fillInTheBlank: 'atomicStructure',
