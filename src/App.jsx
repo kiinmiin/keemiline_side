@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ProgressProvider } from './context/ProgressContext';
 import { LanguageProvider } from './context/LanguageContext';
@@ -11,14 +10,9 @@ import { BondPolarityQuiz } from './games/BondPolarityQuiz/BondPolarityQuiz';
 import { MoleculeBuilder } from './games/MoleculeBuilder/MoleculeBuilder';
 import { BondBasketCatcher } from './games/BondBasketCatcher/BondBasketCatcher';
 import { FillInTheBlank } from './games/FillInTheBlank/FillInTheBlank';
-import { applySettingsFromQuery } from './utils/appSettings';
 import './App.module.css';
 
 function App() {
-  useEffect(() => {
-    applySettingsFromQuery();
-  }, []);
-
   return (
     <LanguageProvider>
       <ProgressProvider>
