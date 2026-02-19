@@ -43,7 +43,8 @@ export function MoleculeBuilder() {
 
     // Count selected atoms by element
     const atomCounts = selectedAtoms.reduce((acc, atom) => {
-      acc[atom.id] = (acc[atom.id] || 0) + 1;
+      const elementKey = atom.symbol || atom.id;
+      acc[elementKey] = (acc[elementKey] || 0) + 1;
       return acc;
     }, {});
 

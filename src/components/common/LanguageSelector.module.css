@@ -26,3 +26,14 @@
   background-color: var(--color-primary);
   color: white;
 }
+
+@media (max-width: 480px) {
+  .selector {
+    gap: var(--spacing-xs);
+  }
+
+  .button {
+    padding: var(--spacing-xs);
+    min-width: var(--tap-target-min);
+  }
+}

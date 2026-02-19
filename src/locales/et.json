@@ -16,11 +16,25 @@
       "title": "Tere tulemast Keemiline'i",
       "subtitle": "Keemia õppimise mängud",
       "desc": "Õpi keemilise sideme põhitõdesid haaravate minimängude abil, mis muudavad keemia õppimise lõbusaks ja interaktiivseks.",
-      "startButton": "Alusta õppimist"
+      "startButton": "Alusta õppimist",
+      "generateButton": "Lingi genereerimine",
+      "settingsTitle": "Mängu seaded",
+      "lockStyleLabel": "Mängu stiil",
+      "lockStyleStrict": "Range",
+      "lockStyleLenient": "Leebe",
+      "lockStyleEasy": "Lihtne",
+      "lockStyleStrictHelp": "Järgmine mäng avaneb ainult siis, kui eelmine mäng on edukalt läbitud.",
+      "lockStyleLenientHelp": "Kui mäng ebaõnnestub 3 korda, avaneb järgmine mäng automaatselt.",
+      "lockStyleEasyHelp": "Kõik mängud on kohe avatud.",
+      "qrAlt": "Praeguste seadete QR-kood",
+      "cancelButton": "Tühista",
+      "saveButton": "Salvesta"
     },
     "hub": {
       "title": "Mängude keskus",
       "selectGame": "Valige mäng alustamiseks",
+      "fillInTheBlank": "Lünkade täitmine",
+      "fillInTheBlankDesc": "Täida keemia laused, sobitades puuduvad sõnad",
       "bondFormation": "Keemiliste sidemete moodustumine",
       "bondFormationDesc": "Õppige, kuidas keemilised sidemed aatomite vahel moodustuvad",
       "bondTypesSorting": "Keemiliste sidemete tüüpide liigitamine",
@@ -41,6 +55,49 @@
     }
   },
   "games": {
+    "fillInTheBlank": {
+      "title": "Lünkade täitmine",
+      "instructions": "Vali sõnad ja paiguta need lause lünkadesse.",
+      "progress": "Lause",
+      "blankPlaceholder": "_____",
+      "check": "Kontrolli",
+      "reset": "Lähtesta",
+      "fillAllBlanks": "Täida enne kontrollimist kõik lüngad.",
+      "correct": "Õige!",
+      "notQuite": "Mitte päris. Proovi uuesti.",
+      "playAgain": "Mängi uuesti",
+      "backToHub": "Tagasi mängude keskusesse",
+      "needToPass": "Läbimiseks on vaja vähemalt {score} õiget lauset.",
+      "successMessage": "Väga hea algus! Sidusid peamised keemia mõisted õigesti.",
+      "words": {
+        "betweenAtoms": "aatomitevahelised",
+        "together": "koos",
+        "evaporates": "aurustub",
+        "moves": "kandub",
+        "toAnother": "teisele",
+        "shines": "helendab",
+        "share": "jagavad",
+        "stability": "stabiilsus",
+        "runAway": "põgenevad"
+      },
+      "exercises": {
+        "chemicalBonds": {
+          "part1": "Keemilised sidemed on",
+          "part2": "jõud, mis hoiavad aine",
+          "part3": "."
+        },
+        "ionicBond": {
+          "part1": "Iooniline side tekib, kui elektron",
+          "part2": "ühelt aatomilt",
+          "part3": "."
+        },
+        "covalentBond": {
+          "part1": "Kovalentses sidemes aatomid",
+          "part2": "elektrone, et saavutada",
+          "part3": "."
+        }
+      }
+    },
     "bondFormation": {
       "title": "Keemiliste sidemete moodustumine",
       "instructions": "Õppige, kuidas keemilised sidemed aatomite vahel moodustuvad",

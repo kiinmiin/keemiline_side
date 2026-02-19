@@ -16,6 +16,66 @@ export function useDragAndDrop() {
   const dragElementRef = useRef(null);
   const dragPreviewRef = useRef(null);
   const initialOffsetRef = useRef({ x: 0, y: 0 });
+  const autoScrollFrameRef = useRef(null);
+  const latestPointerYRef = useRef(null);
+  const activePointerTypeRef = useRef(null);
+
+  const stopAutoScroll = useCallback(() => {
+    if (autoScrollFrameRef.current) {
+      cancelAnimationFrame(autoScrollFrameRef.current);
+      autoScrollFrameRef.current = null;
+    }
+  }, []);
+
+  const runAutoScroll = useCallback(() => {
+    if (!isDraggingRef.current || activePointerTypeRef.current !== 'touch') {
+      stopAutoScroll();
+      return;
+    }
+
+    const pointerY = latestPointerYRef.current;
+    if (pointerY == null) {
+      stopAutoScroll();
+      return;
+    }
+
+    const OUT_OF_BOUNDS_THRESHOLD = 6;
+    const MAX_SCROLL_SPEED = 16;
+    let delta = 0;
+
+    if (pointerY < -OUT_OF_BOUNDS_THRESHOLD) {
+      const intensity = Math.min(1, Math.abs(pointerY) / 40);
+      delta = -Math.ceil(MAX_SCROLL_SPEED * intensity);
+    } else if (pointerY > window.innerHeight + OUT_OF_BOUNDS_THRESHOLD) {
+      const intensity = Math.min(1, (pointerY - window.innerHeight) / 40);
+      delta = Math.ceil(MAX_SCROLL_SPEED * intensity);
+    }
+
+    if (delta === 0) {
+      stopAutoScroll();
+      return;
+    }
+
+    window.scrollBy(0, delta);
+    autoScrollFrameRef.current = requestAnimationFrame(runAutoScroll);
+  }, [stopAutoScroll]);
+
+  const maybeStartAutoScroll = useCallback((pointerY) => {
+    latestPointerYRef.current = pointerY;
+
+    const OUT_OF_BOUNDS_THRESHOLD = 6;
+    const shouldScroll =
+      pointerY < -OUT_OF_BOUNDS_THRESHOLD ||
+      pointerY > window.innerHeight + OUT_OF_BOUNDS_THRESHOLD;
+
+    if (shouldScroll) {
+      if (!autoScrollFrameRef.current) {
+        autoScrollFrameRef.current = requestAnimationFrame(runAutoScroll);
+      }
+    } else {
+      stopAutoScroll();
+    }
+  }, [runAutoScroll, stopAutoScroll]);
 
   // Cleanup drag preview on unmount
   useEffect(() => {
@@ -24,8 +84,9 @@ export function useDragAndDrop() {
         dragPreviewRef.current.remove();
         dragPreviewRef.current = null;
       }
+      stopAutoScroll();
     };
-  }, []);
+  }, [stopAutoScroll]);
 
   // Register a drop zone
   const registerDropZone = useCallback((id, element, acceptsFn) => {
@@ -100,11 +161,18 @@ export function useDragAndDrop() {
   }, []);
 
   const handleDragStart = useCallback((itemId, event) => {
+    activePointerTypeRef.current = event.pointerType;
+
+    if (event.pointerType === 'touch') {
+      latestPointerYRef.current = event.clientY;
+    }
+
     event.preventDefault();
     event.stopPropagation();
-    
-    // Capture the pointer to receive all pointer events
-    event.target.setPointerCapture(event.pointerId);
+
+    if (event.target.setPointerCapture && event.pointerId !== undefined) {
+      event.target.setPointerCapture(event.pointerId);
+    }
     dragElementRef.current = event.target;
 
     draggedItemRef.current = itemId;
@@ -114,13 +182,7 @@ export function useDragAndDrop() {
     setIsDragging(true);
     setDragPosition({ x: event.clientX, y: event.clientY });
 
-    // Create visual preview
     createDragPreview(event.currentTarget, event.clientX, event.clientY);
-
-    // Prevent scrolling on touch devices while dragging
-    if (event.pointerType === 'touch') {
-      document.body.style.overflow = 'hidden';
-    }
   }, [createDragPreview]);
 
   const handleDragMove = useCallback((event) => {
@@ -132,6 +194,10 @@ export function useDragAndDrop() {
     
     setDragPosition({ x: event.clientX, y: event.clientY });
     updateDragPreview(event.clientX, event.clientY);
+
+    if (event.pointerType === 'touch') {
+      maybeStartAutoScroll(event.clientY);
+    }
     
     const activeZone = findActiveDropZone(
       event.clientX,
@@ -139,7 +205,7 @@ export function useDragAndDrop() {
       draggedItemRef.current
     );
     setActiveDropZone(activeZone);
-  }, [findActiveDropZone, updateDragPreview]);
+  }, [findActiveDropZone, maybeStartAutoScroll, updateDragPreview]);
 
   const handleDragEnd = useCallback((event, onDropCallback) => {
     if (!isDraggingRef.current || !draggedItemRef.current) return;
@@ -150,7 +216,7 @@ export function useDragAndDrop() {
     if (dragElementRef.current && event.pointerId) {
       try {
         dragElementRef.current.releasePointerCapture(event.pointerId);
-      } catch (e) {
+      } catch {
         // Ignore if capture was already released
       }
     }
@@ -160,11 +226,9 @@ export function useDragAndDrop() {
       event.clientY,
       draggedItemRef.current
     );
-
-    // Re-enable scrolling on touch devices
-    if (event.pointerType === 'touch') {
-      document.body.style.overflow = '';
-    }
+    stopAutoScroll();
+    activePointerTypeRef.current = null;
+    latestPointerYRef.current = null;
 
     // Remove the visual preview
     removeDragPreview();
@@ -182,7 +246,7 @@ export function useDragAndDrop() {
     setIsDragging(false);
     setActiveDropZone(null);
     setDragPosition({ x: 0, y: 0 });
-  }, [findActiveDropZone, removeDragPreview]);
+  }, [findActiveDropZone, removeDragPreview, stopAutoScroll]);
 
   return {
     draggedItem,

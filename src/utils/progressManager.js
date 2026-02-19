@@ -1,18 +1,18 @@
+import { getAppSettings } from './appSettings';
+
 /**
  * Game unlock conditions
  * true = always unlocked
  * string = unlock when that game is completed (e.g., 'bondTypesSorting')
  */
 export const gameUnlockConditions = {
+  fillInTheBlank: true,
   bondTypesSorting: true, // Always unlocked (first game)
   bondFormation: 'bondTypesSorting',
   electronegativityMatch: 'bondFormation',
   bondPolarityQuiz: 'electronegativityMatch',
   moleculeBuilder: 'bondPolarityQuiz',
   bondBasketCatcher: 'moleculeBuilder',
-  conceptQuestions: 'moleculeBuilder',
-  atomicStructure: 'conceptQuestions',
-  fillInTheBlank: 'atomicStructure',
 };
 
 /**
@@ -22,7 +22,12 @@ export const gameUnlockConditions = {
  * @returns {boolean} - Whether the game is unlocked
  */
 export function isGameUnlocked(gameId, progress) {
+  const { lockStyle } = getAppSettings();
   const condition = gameUnlockConditions[gameId];
+
+  if (lockStyle === 'easy') {
+    return true;
+  }
 
   // Always unlocked
   if (condition === true) {
@@ -31,7 +36,16 @@ export function isGameUnlocked(gameId, progress) {
 
   // Check if prerequisite game is completed
   if (typeof condition === 'string') {
-    return progress.games?.[condition]?.completed === true;
+    const prerequisiteProgress = progress.games?.[condition];
+
+    if (lockStyle === 'strict') {
+      return prerequisiteProgress?.completed === true;
+    }
+
+    return (
+      prerequisiteProgress?.completed === true ||
+      (prerequisiteProgress?.failedAttempts ?? 0) >= 3
+    );
   }
 
   return false;
@@ -58,12 +72,13 @@ export function getNextGame(currentGameId) {
  * @param {string} gameId - ID of the game
  * @returns {object} - Initial progress object
  */
-export function initializeGameProgress(gameId) {
+export function initializeGameProgress() {
   return {
     completed: false,
     score: 0,
     totalItems: 0,
     attempts: 0,
+    failedAttempts: 0,
     lastPlayed: null,
   };
 }
@@ -76,7 +91,8 @@ export function initializeGameProgress(gameId) {
  * @returns {object} - Updated progress object
  */
 export function updateGameProgress(currentProgress, gameId, results) {
-  const gameProgress = currentProgress.games?.[gameId] || initializeGameProgress(gameId);
+  const gameProgress = currentProgress.games?.[gameId] || initializeGameProgress();
+  const passed = results.passed === true;
 
   return {
     ...currentProgress,
@@ -84,10 +100,13 @@ export function updateGameProgress(currentProgress, gameId, results) {
       ...currentProgress.games,
       [gameId]: {
         ...gameProgress,
-        completed: results.passed || false,
+        completed: gameProgress.completed || passed,
         score: results.score,
         totalItems: results.totalItems,
         attempts: gameProgress.attempts + 1,
+        failedAttempts: passed
+          ? gameProgress.failedAttempts
+          : (gameProgress.failedAttempts ?? 0) + 1,
         lastPlayed: new Date().toISOString(),
       },
     },

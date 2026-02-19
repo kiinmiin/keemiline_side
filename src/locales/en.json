@@ -16,11 +16,25 @@
       "title": "Welcome to Keemiline",
       "subtitle": "Chemistry Learning Games",
       "desc": "Master the fundamentals of chemical bonding with engaging mini-games that make learning chemistry fun and interactive.",
-      "startButton": "Start Learning"
+      "startButton": "Start Learning",
+      "generateButton": "Generate a link",
+      "settingsTitle": "Game Settings",
+      "lockStyleLabel": "Game Unlock Style",
+      "lockStyleStrict": "Strict",
+      "lockStyleLenient": "Lenient",
+      "lockStyleEasy": "Easy",
+      "lockStyleStrictHelp": "Next game unlocks only when the previous game is passed.",
+      "lockStyleLenientHelp": "If a game is failed 3 times, the next game unlocks automatically.",
+      "lockStyleEasyHelp": "All games are immediately unlocked.",
+      "qrAlt": "QR code for current settings",
+      "cancelButton": "Cancel",
+      "saveButton": "Save"
     },
     "hub": {
       "title": "Game Hub",
       "selectGame": "Select a game to start",
+      "fillInTheBlank": "Fill in the Blank",
+      "fillInTheBlankDesc": "Complete chemistry sentences by matching missing words",
       "bondFormation": "Bond Formation",
       "bondFormationDesc": "Learn how chemical bonds form between atoms",
       "bondTypesSorting": "Bond Types Sorting",
@@ -41,6 +55,49 @@
     }
   },
   "games": {
+    "fillInTheBlank": {
+      "title": "Fill in the Blank",
+      "instructions": "Choose words and place them into the sentence gaps.",
+      "progress": "Sentence",
+      "blankPlaceholder": "_____",
+      "check": "Check",
+      "reset": "Reset",
+      "fillAllBlanks": "Fill all blanks before checking.",
+      "correct": "Correct!",
+      "notQuite": "Not quite. Try again.",
+      "playAgain": "Play Again",
+      "backToHub": "Back to Hub",
+      "needToPass": "You need at least {score} correct sentences to pass.",
+      "successMessage": "Great start! You matched the key chemistry ideas.",
+      "words": {
+        "betweenAtoms": "between atoms",
+        "together": "together",
+        "evaporates": "evaporates",
+        "moves": "moves",
+        "toAnother": "to another",
+        "shines": "shines",
+        "share": "share",
+        "stability": "stability",
+        "runAway": "run away"
+      },
+      "exercises": {
+        "chemicalBonds": {
+          "part1": "Chemical bonds are",
+          "part2": "forces that keep matter",
+          "part3": "."
+        },
+        "ionicBond": {
+          "part1": "An ionic bond forms when an electron",
+          "part2": "from one atom",
+          "part3": "."
+        },
+        "covalentBond": {
+          "part1": "In a covalent bond, atoms",
+          "part2": "electrons to reach",
+          "part3": "."
+        }
+      }
+    },
     "bondFormation": {
       "title": "Chemical Bond Formation",
       "instructions": "Learn how chemical bonds form between atoms",

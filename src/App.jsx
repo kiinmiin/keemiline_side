@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ProgressProvider } from './context/ProgressContext';
 import { LanguageProvider } from './context/LanguageContext';
@@ -9,9 +10,15 @@ import { ElectronegativityMatch } from './games/ElectronegativityMatch/Electrone
 import { BondPolarityQuiz } from './games/BondPolarityQuiz/BondPolarityQuiz';
 import { MoleculeBuilder } from './games/MoleculeBuilder/MoleculeBuilder';
 import { BondBasketCatcher } from './games/BondBasketCatcher/BondBasketCatcher';
+import { FillInTheBlank } from './games/FillInTheBlank/FillInTheBlank';
+import { applySettingsFromQuery } from './utils/appSettings';
 import './App.module.css';
 
 function App() {
+  useEffect(() => {
+    applySettingsFromQuery();
+  }, []);
+
   return (
     <LanguageProvider>
       <ProgressProvider>
@@ -19,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<SplashScreen />} />
             <Route path="/hub" element={<GameHub />} />
+            <Route path="/game/fill-in-the-blank" element={<FillInTheBlank />} />
             <Route path="/game/bond-types" element={<BondTypesSorting />} />
             <Route path="/game/bond-formation" element={<BondFormation />} />
             <Route path="/game/electronegativity" element={<ElectronegativityMatch />} />

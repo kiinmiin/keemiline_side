@@ -25,6 +25,7 @@ export function ElectronegativityMatch() {
 
   // Shuffle values once on mount
   const shuffledValues = useMemo(() => shuffleArray(electronegativityData.values), []);
+  const shuffledElements = useMemo(() => shuffleArray(electronegativityData.elements), []);
 
   const [availableValues, setAvailableValues] = useState(shuffledValues);
   const [matchedPairs, setMatchedPairs] = useState({});
@@ -158,7 +159,7 @@ export function ElectronegativityMatch() {
           <div className={styles.elementsSection}>
             <h3 className={styles.sectionTitle}>{t('games.electronegativityMatch.elements')}</h3>
             <div className={styles.elementsGrid}>
-              {electronegativityData.elements.map((element) => {
+              {shuffledElements.map((element) => {
                 const matched = matchedPairs[element.id];
                 return (
                   <div

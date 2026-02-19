@@ -1,0 +1,130 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.progress {
+  font-size: var(--font-size-base);
+  color: var(--color-text-light);
+  text-align: center;
+  font-weight: 500;
+}
+
+.instructions {
+  text-align: center;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.exerciseCard {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+}
+
+.sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+  line-height: 1.7;
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+}
+
+.blank {
+  min-width: 120px;
+  min-height: var(--tap-target-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 2px dashed var(--color-primary);
+  background-color: #eff6ff;
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.blankFilled {
+  border-style: solid;
+  background-color: #dbeafe;
+}
+
+.activeDropZone {
+  border-style: solid;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.wordBank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.wordButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target-min);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 2px solid #cbd5e1;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+  touch-action: none;
+}
+
+.wordButtonSelected {
+  border-color: var(--color-primary);
+  background-color: #dbeafe;
+}
+
+.wordButtonUsed {
+  opacity: 0.45;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.completion {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.completionTitle {
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.score {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.message {
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}

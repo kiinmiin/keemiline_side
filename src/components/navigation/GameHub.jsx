@@ -7,6 +7,12 @@ import styles from './GameHub.module.css';
 
 const games = [
   {
+    id: 'fillInTheBlank',
+    titleKey: 'navigation.hub.fillInTheBlank',
+    descriptionKey: 'navigation.hub.fillInTheBlankDesc',
+    route: '/game/fill-in-the-blank',
+  },
+  {
     id: 'bondTypesSorting',
     titleKey: 'navigation.hub.bondTypesSorting',
     descriptionKey: 'navigation.hub.bondTypesSortingDesc',
