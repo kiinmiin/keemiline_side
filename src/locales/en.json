@@ -27,6 +27,8 @@
       "lockStyleLenientHelp": "If a game is failed 3 times, the next game unlocks automatically.",
       "lockStyleEasyHelp": "All games are immediately unlocked.",
       "qrAlt": "QR code for current settings",
+      "openConfiguredGame": "Open game in new tab",
+      "openConfiguredGameHelp": "Open the game yourself with the currently selected settings.",
       "cancelButton": "Cancel",
       "saveButton": "Save"
     },

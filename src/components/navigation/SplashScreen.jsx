@@ -37,6 +37,10 @@ export function SplashScreen() {
     setIsSettingsOpen(false);
   };
 
+  const handleOpenConfiguredGame = () => {
+    window.open(shareUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className={styles.splash}>
       <div className={styles.languageSelector}>
@@ -106,6 +110,12 @@ export function SplashScreen() {
                 alt={t('navigation.splash.qrAlt')}
                 className={styles.qrImage}
               />
+              <div className={styles.qrActions}>
+                <Button variant="secondary" size="medium" onClick={handleOpenConfiguredGame}>
+                  {t('navigation.splash.openConfiguredGame')}
+                </Button>
+                <p className={styles.qrHelp}>{t('navigation.splash.openConfiguredGameHelp')}</p>
+              </div>
             </div>
 
             <div className={styles.modalActions}>

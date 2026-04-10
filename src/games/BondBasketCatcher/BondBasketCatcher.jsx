@@ -14,6 +14,9 @@ const AREA_HEIGHT = 420;
 const ITEM_SIZE = 56;
 const ITEM_RADIUS = ITEM_SIZE / 2;
 const BASKET_WIDTH = 148;
+const SPAWN_CLEARANCE_X = 64;
+const SPAWN_CLEARANCE_Y = 88;
+const SPAWN_ROW_CLEARANCE_Y = 52;
 
 function randomFromArray(items) {
   return items[Math.floor(Math.random() * items.length)];
@@ -21,6 +24,57 @@ function randomFromArray(items) {
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
+}
+
+function pickSpawnPosition(activeItems, minX, maxX, lowY, highY) {
+  const attempts = 18;
+  let bestCandidate = null;
+  let bestScore = -1;
+
+  for (let index = 0; index < attempts; index += 1) {
+    const candidate = {
+      x: Math.random() * (maxX - minX) + minX,
+      y: Math.random() * (highY - lowY) + lowY,
+    };
+
+    let nearestXDistance = Number.POSITIVE_INFINITY;
+    let nearestYDistance = Number.POSITIVE_INFINITY;
+    let overlapsNearbyItem = false;
+    let sharesRowWithItem = false;
+
+    activeItems.forEach((item) => {
+      const deltaX = Math.abs(item.x - candidate.x);
+      const deltaY = Math.abs(item.y - candidate.y);
+
+      if (deltaX < nearestXDistance) {
+        nearestXDistance = deltaX;
+      }
+
+      if (deltaY < nearestYDistance) {
+        nearestYDistance = deltaY;
+      }
+
+      if (deltaY <= SPAWN_CLEARANCE_Y && deltaX < SPAWN_CLEARANCE_X) {
+        overlapsNearbyItem = true;
+      }
+
+      if (deltaY < SPAWN_ROW_CLEARANCE_Y) {
+        sharesRowWithItem = true;
+      }
+    });
+
+    if (!overlapsNearbyItem && !sharesRowWithItem) {
+      return candidate;
+    }
+
+    const score = nearestYDistance * 2 + nearestXDistance;
+    if (score > bestScore) {
+      bestScore = score;
+      bestCandidate = candidate;
+    }
+  }
+
+  return bestCandidate || { x: minX, y: lowY };
 }
 
 export function BondBasketCatcher() {
@@ -159,9 +213,10 @@ export function BondBasketCatcher() {
       const maxX = Math.max(ITEM_RADIUS + 1, areaWidth - ITEM_RADIUS);
       const maxConcurrentItems = bondBasketData.maxConcurrentItems || 3;
 
-      const activeItemsCount = fallingItemsRef.current.filter(
+      const activeFallingItems = fallingItemsRef.current.filter(
         (item) => item.status === 'falling'
-      ).length;
+      );
+      const activeItemsCount = activeFallingItems.length;
 
       if (activeItemsCount >= maxConcurrentItems) {
         spawnTimeoutId = setTimeout(spawnOne, currentInterval);
@@ -175,7 +230,7 @@ export function BondBasketCatcher() {
         typeof bondBasketData.spawnYMax === 'number' ? bondBasketData.spawnYMax : -ITEM_RADIUS;
       const lowY = Math.min(spawnYMin, spawnYMax);
       const highY = Math.max(spawnYMin, spawnYMax);
-      const spawnY = Math.random() * (highY - lowY) + lowY;
+      const spawnPosition = pickSpawnPosition(activeFallingItems, minX, maxX, lowY, highY);
 
       replaceFallingItems([
         ...fallingItemsRef.current,
@@ -183,8 +238,8 @@ export function BondBasketCatcher() {
           uid: `${element.id}-${Date.now()}-${Math.random()}`,
           label: element.label,
           type: element.type,
-          x: Math.random() * (maxX - minX) + minX,
-          y: spawnY,
+          x: spawnPosition.x,
+          y: spawnPosition.y,
           speed: baseSpeed + Math.random() * speedVariance,
           status: 'falling',
         },

@@ -27,6 +27,8 @@
       "lockStyleLenientHelp": "Kui mäng ebaõnnestub 3 korda, avaneb järgmine mäng automaatselt.",
       "lockStyleEasyHelp": "Kõik mängud on kohe avatud.",
       "qrAlt": "Praeguste seadete QR-kood",
+      "openConfiguredGame": "Ava mäng uuel vahelehel",
+      "openConfiguredGameHelp": "Ava mäng ise praegu valitud seadistustega.",
       "cancelButton": "Tühista",
       "saveButton": "Salvesta"
     },
