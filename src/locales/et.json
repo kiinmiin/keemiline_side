@@ -125,7 +125,7 @@
       },
       "pairData": {
         "nacl": { "name": "Naatriumkloriid (lauasool)", "bondType": "Iooniline side", "explanation": "Naatrium kaotab 1 elektroni kloorile, moodustades Na⁺ ja Cl⁻ ioonid, mis tõmbavad üksteist. See on iooniline side, mis tekib elektronide ülekande teel." },
-        "h2": { "name": "Vesinikgaas", "bondType": "Kovalentne side", "explanation": "Kaks vesinikaatomit jagavad oma elektrone stabiilse molekuli moodustamiseks. See on kovalentne side, mis tekib elektronide jagamise teel." },
+        "h2": { "name": "Vesinik", "bondType": "Kovalentne side", "explanation": "Kaks vesinikaatomit jagavad oma elektrone stabiilse molekuli moodustamiseks. See on kovalentne side, mis tekib elektronide jagamise teel." },
         "mgo": { "name": "Magneesiumoksiid", "bondType": "Iooniline side", "explanation": "Magneesium kaotab 2 elektroni hapnikule, moodustades Mg²⁺ ja O²⁻ ioonid, mis tõmbavad üksteist. See on iooniline side." },
         "co2-partial": { "name": "Süsiniku-hapniku side", "bondType": "Kovalentne side", "explanation": "Süsinik ja hapnik jagavad elektrone kaksiksideme moodustamiseks. CO₂-s moodustab süsinik kahe hapnikuaatomiga kaksiksidemed." }
       }
